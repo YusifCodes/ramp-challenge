@@ -90,9 +90,10 @@ hr.RampBreak--l {
   cursor: pointer;
 }
 
+/* position fixed places element relative to the viewport, that is why it moves when the viewport moves. We need  to use absolute positioning here since it places the element relative to its parent container without changing the layout around it*/
 .RampInputSelect--dropdown-container {
   display: none;
-  position: fixed;
+  position: absolute;
   width: 100%;
   max-width: 700px;
   border: 1px solid var(--color-darker-shade);

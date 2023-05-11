@@ -21,8 +21,10 @@ export function usePaginatedTransactions(): PaginatedTransactionsResult {
       if (response === null || previousResponse === null) {
         return response
       }
+      
+      // if paginatedTransactions state variable is an empty array - fetch api and return, if it is not we join the current paginatedTransactions array and the newly fetched array, and concatenate them using a spread operator and return
+      return { data: paginatedTransactions === null ? response.data : [...paginatedTransactions.data, ...response.data], nextPage: response.nextPage }
 
-      return { data: response.data, nextPage: response.nextPage }
     })
   }, [fetchWithCache, paginatedTransactions])
 
